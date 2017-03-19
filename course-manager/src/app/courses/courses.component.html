@@ -1,0 +1,11 @@
+<div>
+  Courses {{ childMessage }}
+
+  <!--
+  <course-preview [course]='courseAndroid' (courseClickedEvent)='courseClicked($event)'></course-preview>
+  <course-preview [course]='courseAngular' (courseClickedEvent)='courseClicked($event)'></course-preview>
+  <course-preview [course]='courseBackbone' (courseClickedEvent)='courseClicked($event)'></course-preview>
+
+  -->
+  <course-preview *ngFor="let c of courses" [showImages]='showImages' [course]="c" (courseClickedEvent)='courseClicked($event)'></course-preview>
+</div>

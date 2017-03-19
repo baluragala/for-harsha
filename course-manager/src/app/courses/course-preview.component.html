@@ -1,0 +1,7 @@
+<div>
+    <p [ngStyle]='{color:getColor()}'>{{course.courseTitle}}</p>
+
+    <p [ngClass]='getClassName()'>{{course.courseTitle | uppercase }}</p>
+    <img *ngIf='showImages' [src]='course.courseImageUrl' (click)='courseClicked($event)' [style.width.px]="100"/>
+    <h3>{{course.price | currency:'USD':true:'1.2-2' }}</h3>
+</div>
