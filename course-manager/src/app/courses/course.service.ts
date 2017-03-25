@@ -1,22 +1,11 @@
-import { Component,OnInit } from '@angular/core'
+import {Injectable} from '@angular/core'
 import { Course } from './course';
-import { CourseService} from './course.service'
 
-@Component({
-  selector:'course-list',
-  templateUrl:'app/courses/courses.component.html'
-})
-export class CoursesComponent implements OnInit {
-  
-  constructor(private courseService:CourseService){}
- 
-  ngOnInit(){
-      this.courses = this.courseService.getCourses();
-  }
- 
-  showImages=true;
-  condition=false;
-  /*courseAndroid={
+@Injectable()
+export class CourseService{
+
+    private courses:Array<Course>=[
+    {
         "courseId": 1,
         "courseTitle": "Android Development",
         "courseCode": "ZL-0500",
@@ -25,8 +14,8 @@ export class CoursesComponent implements OnInit {
         "price": 600,
         "rating": 3.2,
         "courseImageUrl": "http://images.dailytech.com/frontpage/fp__android-logo-100x100.gif"
-    }
-    courseAngular={
+    },
+    {
         "courseId": 2,
         "courseTitle": "ANGULAR JS 2.0",
         "courseCode": "ZL-0623",
@@ -36,7 +25,7 @@ export class CoursesComponent implements OnInit {
         "rating": 4.2,
         "courseImageUrl": "https://angular.io/resources/images/logos/angular2/angular.svg"
     },
-    courseBackbone={
+    {
         "courseId": 3,
         "courseTitle": "BACKBONE.JS",
         "courseCode": "ZL-0628",
@@ -45,15 +34,30 @@ export class CoursesComponent implements OnInit {
         "price": 400,
         "rating": 4.8,
         "courseImageUrl": "http://backbonejs.org/docs/images/backbone.png"
-    }*/
+    },
+    {
+        "courseId": 4,
+        "courseTitle": "Advanced Scala",
+        "courseCode": "ZL-0101",
+        "releaseDate": "May 15, 2016",
+        "description": "This online program has been meticulously designed by our world class trainer and you will learn how to create well designed DSLs. With a lot of focus on hands-on coaching this self-paced class is the perfect solution for Scala aficionados who can take the course from any part of the world.",
+        "price": 450,
+        "rating": 3.7,
+        "courseImageUrl": "https://www.scala-lang.org/resources/img/smooth-spiral@2x.png"
+    },
+    {
+        "courseId": 5,
+        "courseTitle": "AURELIA",
+        "courseCode": "ZL-0902",
+        "releaseDate": "October 15, 2015",
+        "description": "Zeolearn Academy brings you a comprehensive Aurelia training that will help you master this next generation UI framework. You will get end to end coverage of all Aurelia fundamentals in an experiential course that focuses more on hands on learning. You will learn about the MVVM pattern, data binding, routing, dependency injection and extensibility. The workshop is designed to help you master Aurelia and write maintainable, testable and extensible client applications that are responsive and interactive. ",
+        "price": 525,
+        "rating": 4.6,
+        "courseImageUrl": "http://aurelia.io/images/main-logo.svg"
+    }
+]
+    getCourses(){
+        return this.courses;
+    }
 
-    courses:Array<Course> = [];
-
-childMessage='';
-
-courseClicked(e:any){
-  this.childMessage=e;
-  console.log(e);
-}
-  
 }

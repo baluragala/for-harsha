@@ -10,16 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
 var courses_component_1 = require('./courses.component');
 var course_preview_component_1 = require('./course-preview.component');
+var course_service_1 = require('./course.service');
+var course_create_component_1 = require('./course-create.component');
+var course_create_rf_component_1 = require('./course-create-rf.component');
 var CoursesModule = (function () {
     function CoursesModule() {
     }
     CoursesModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [courses_component_1.CoursesComponent, course_preview_component_1.CoursePreviewComponent],
-            exports: [courses_component_1.CoursesComponent]
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+            declarations: [courses_component_1.CoursesComponent, course_preview_component_1.CoursePreviewComponent, course_create_component_1.CourseCreateComponent, course_create_rf_component_1.CourseCreateRFComponet],
+            providers: [course_service_1.CourseService],
+            exports: [courses_component_1.CoursesComponent, course_create_component_1.CourseCreateComponent, course_create_rf_component_1.CourseCreateRFComponet]
         }), 
         __metadata('design:paramtypes', [])
     ], CoursesModule);

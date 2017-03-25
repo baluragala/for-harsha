@@ -18,7 +18,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\n    {{ 7 | powerof:2:10}}\n\n    <p>Today piped, chained {{today | date:format | uppercase }}</p>\n\n\n    <p *myUnless=\"condition\">\n        (A) This paragraph is displayed because the condition is false.\n    </p>\n      <h1 myHighlight>Course Manager</h1>\n      <course-list></course-list>\n  ",
+            template: "\n\n    <rf></rf>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
