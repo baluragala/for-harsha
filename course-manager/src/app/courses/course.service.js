@@ -67,6 +67,11 @@ var CourseService = (function () {
     CourseService.prototype.getCourses = function () {
         return this.courses;
     };
+    CourseService.prototype.getCourseById = function (courseId) {
+        var course = this.courses.find(function (c) { return c.courseId === courseId; });
+        console.log(course);
+        return course;
+    };
     CourseService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

@@ -1,5 +1,5 @@
 <div>
-    <p [ngStyle]='{color:getColor()}'>{{course.courseTitle}}</p>
+    <a [ngStyle]='{color:getColor()}' [routerLink]="['/courses',course.courseId]">{{course.courseTitle}}</a>
 
     <p [ngClass]='getClassName()'>{{course.courseTitle | uppercase }}</p>
     <img *ngIf='showImages' [src]='course.courseImageUrl' (click)='courseClicked($event)' [style.width.px]="100"/>

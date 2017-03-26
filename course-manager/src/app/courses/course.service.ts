@@ -60,4 +60,10 @@ export class CourseService{
         return this.courses;
     }
 
+    getCourseById(courseId:number) : Course{
+        let course = this.courses.find((c)=>c.courseId === courseId);
+        console.log(course);
+        return course;
+    }
+
 }

@@ -11,28 +11,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var CourseCreateRFComponet = (function () {
-    function CourseCreateRFComponet() {
-        // form with 2 controls '
-        // 1 title
-        // 2 description
-        this.courseForm = new forms_1.FormGroup({
-            title: new forms_1.FormControl(),
-            description: new forms_1.FormControl()
-        });
+    function CourseCreateRFComponet(formBuilder) {
+        this.formBuilder = formBuilder;
         this.model = {
             title: '',
-            description: ''
+            description: '',
+            category: ''
         };
     }
-    CourseCreateRFComponet.prototype.ngDoCheck = function () {
+    CourseCreateRFComponet.prototype.ngOnInit = function () {
+        // this.courseForm = new FormGroup({
+        //     title: new FormControl('angular 2', Validators.required),
+        //     description: new FormControl('Beginners guide'),
+        //     category: new FormControl('Machine Learning')
+        // });
+        this.courseForm = this.formBuilder.group({
+            title: ['', forms_1.Validators.required],
+            description: '',
+            category: ''
+        });
+        this.courseForm.patchValue({
+            title: 'Android',
+            description: 'Mobile Deve',
+            category: 'Mobile'
+        });
+        console.log(this.courseForm);
+    };
+    CourseCreateRFComponet.prototype.OnSubmit = function () {
         console.log(this.courseForm);
     };
     CourseCreateRFComponet = __decorate([
         core_1.Component({
             selector: 'rf',
-            template: "\n   <form [formGroup]=\"courseForm\" novalidate>\n        <label>Title:</label>\n        <input type=\"text\" name=\"title\" required  fromControlName=\"title\"/>\n        <label>Description:</label>\n        <input type=\"text\" name=\"description\" required fromControlName=\"description\"/>\n        <input type=\"submit\" value=\"Add\"/>\n    </form>\n    "
+            template: "\n   <form [formGroup]=\"courseForm\" (submit)=\"OnSubmit()\">\n        <label>Title:</label>\n        <input type=\"text\" name=\"title\" formControlName=\"title\"/>\n        <p *ngIf=\"courseForm.controls.title.errors\">Title is required</p>\n        <label>Description:</label>\n        <input type=\"text\" name=\"description\" required formControlName=\"description\"/>\n        <label>category:</label>\n        <select formControlName=\"category\">\n            <option value=\"Machine Learning\">Machine Learning</option>\n            <option value=\"Web\">Web</option>\n            <option value=\"Mobile\">Mobile</option>\n        </select>\n        <input type=\"submit\" value=\"Add\"/>\n    </form>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [forms_1.FormBuilder])
     ], CourseCreateRFComponet);
     return CourseCreateRFComponet;
 }());

@@ -10,16 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var courses_module_1 = require('./courses/courses.module');
 var shared_module_1 = require('./shared/shared.module');
+var courses_component_1 = require('./courses/courses.component');
+var home_component_1 = require('./home.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, courses_module_1.CoursesModule, shared_module_1.SharedModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [platform_browser_1.BrowserModule,
+                courses_module_1.CoursesModule,
+                shared_module_1.SharedModule,
+                router_1.RouterModule.forRoot([
+                    { path: 'home', component: home_component_1.HomeComponent },
+                    { path: 'courses', component: courses_component_1.CoursesComponent }
+                ])
+            ],
+            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
