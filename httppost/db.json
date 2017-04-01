@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "All about angular2",
+      "author": "baluragala"
+    },
+    {
+      "id": 3,
+      "title": "All about react",
+      "author": "baluragala"
+    },
+    {
+      "title": "All about ember",
+      "author": "baluragala",
+      "id": 4
+    },
+    {
+      "title": "Angular is awesome",
+      "author": "balu",
+      "id": 5
+    },
+    {
+      "title": "Angular is amazing",
+      "author": "zeo",
+      "id": 6
+    },
+    {
+      "title": "sdfggsfd",
+      "author": "gsdfgdsf",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

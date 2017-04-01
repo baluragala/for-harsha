@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.min.js"></script>
+</body>
+</html>
+
+
+var dataPromise = new Promise((resolve, reject)=>{
+  console.log('Creating promise');
+  setTimeout(()=>resolve('Hello from promise1'),6000);
+  setTimeout(()=>resolve('Hello from promise2'),12000);
+})
